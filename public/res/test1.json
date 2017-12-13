@@ -1,26 +1,26 @@
 [
   {
     "text_all":["aaaa", "bbbb", "ccc"],
-    "blank_index":1
+    "blank_index":[0,1]
   },
   {
     "text_all":["dddd","eeeee","fff"],
-    "blank_index":2
+    "blank_index":[0,1]
   },
   {
     "text_all":["aaaa", "bbbb", "ccc"],
-    "blank_index":1
+    "blank_index":[1,2]
   },
   {
     "text_all":["dddd","eeeee","fff"],
-    "blank_index":2
+    "blank_index":[1,2]
   },
   {
     "text_all":["aaaa", "bbbb", "ccc"],
-    "blank_index":1
+    "blank_index":[0,2]
   },
   {
     "text_all":["dddd","eeeee","fff"],
-    "blank_index":2
+    "blank_index":[0,2]
   }
 ]

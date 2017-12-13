@@ -20,7 +20,7 @@ class FillBlank {
     constructor(text, blankIndex) {
         this.weight = Math.random();
         this.textArray = text;
-        this.blankIndex = blankIndex;
+        this.blankIndex = blankIndex; // [1,5] << [start, end]
     }
 
 }
@@ -39,7 +39,7 @@ function createFillBlankWindow () {
   }))
 
   // Open the DevTools.
-  //FillBlankWindow.webContents.openDevTools()
+  // FillBlankWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   FillBlankWindow.on('closed', () => {

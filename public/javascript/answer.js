@@ -27,7 +27,7 @@ class FillBlank {
   getText(){
     var text = ""
     this.textArray.forEach((elm, index, arr) => {
-      text = text + elm
+      text = text + " " + elm
     });
     return text
   }
