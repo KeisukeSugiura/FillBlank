@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Answer</title>
+</head>
+
+<body>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(243, 243, 243);
+        }
+        .text_container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 50% 50%;
+            grid-gap: 10px;
+            /* grid-auto-rows: minmax(100px, auto); */
+            width: 100%;
+            height: 100%;
+            background-color: rgb(243, 243, 243);
+            font-size: 24px;
+            font-family: sans-serif;
+        }
+        .text {
+            
+        }
+        textarea.text_area {
+            width: 100%;
+            font-size: 24px;
+            font-family: sans-serif;
+            resize: none;
+            border: 0px #ff0000 double;
+        }
+    </style>
+
+    <div class="text_container">
+        <div style="grid-column:1;grid-row:1;background-color:rgb(243, 243, 243);padding:10%;">
+            <div id="grid_1" style="background-color:rgb(255, 255, 255);width:100%;height:100%;padding:10px;overflow: hidden;">
+            </div>
+        </div>
+        <div style="grid-column:2;grid-row:1;background-color:rgb(243, 243, 243);padding:10%;">
+            <div id="grid_2" style="background-color:rgb(255, 255, 255);width:100%;height:100%;padding:10px;overflow: hidden;">
+            </div>
+        </div>
+        <div style="grid-column:3;grid-row:1;background-color:rgb(243, 243, 243);padding:10%;">
+            <div id="grid_3" style="background-color:rgb(255, 255, 255);width:100%;height:100%;padding:10px;overflow: hidden;"></div>
+        </div>
+        <div style="grid-column:1;grid-row:2;background-color:rgb(243, 243, 243);padding:10%;">
+            <div id="grid_4" style="background-color:rgb(255, 255, 255);width:100%;height:100%;padding:10px;overflow: hidden;"></div>
+        </div>
+        <div style="grid-column:2;grid-row:2;background-color:rgb(243, 243, 243);padding:10%;">
+            <div id="grid_5" style="background-color:rgb(255, 255, 255);width:100%;height:100%;padding:10px;overflow: hidden;"></div>
+        </div>
+        <div style="grid-column:3;grid-row:2;background-color:rgb(243, 243, 243);padding:10%;">
+            <div id="grid_6" style="background-color:rgb(255, 255, 255);width:100%;height:100%;padding:10px;overflow: hidden;"></div>
+        </div>
+    </div>
+
+
+    <script src="../javascript/answer.js"></script>
+</body>
+
+</html>
