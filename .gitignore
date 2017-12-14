@@ -1,4 +1,5 @@
 node_modules/
 Pelmanism-darwin-x64/
+public/res
 
 *.DS_Store

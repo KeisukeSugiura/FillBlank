@@ -12,6 +12,7 @@ var DISPLAY_MAGNIFICATION = 0.8
 // be closed automatically when the JavaScript object is garbage collected.
 let FillBlankWindow
 let answerWindow
+let selectWindow
 
 const RESOURCE_PATH = "../res/";
 var questionList = []
@@ -71,11 +72,27 @@ function createAnswerWindow(){
   })
 }
 
+function createSelectWindow(){
+  console.log("create select window")
+  selectWindow = new BrowserWindow({width:displayWidth, height:displayHeight, x:0, y:0})
 
-function initTextList(){
+  // selectWindow.webContents.openDevTools();
+
+  selectWindow.loadURL(url.format({
+    pathname: path.join(__dirname, './public/html/index.html'),
+    protocol:'file',
+    slashes: true
+  }))
+  selectWindow.on('closed',() => {
+    selectWindow = null
+  })
+}
+
+
+function initTextList(number){
       return new Promise((resolve,reject)=>{
 
-        var textDataList = JSON.parse(fs.readFileSync('./public/res/test1.json', 'utf8'));
+        var textDataList = JSON.parse(fs.readFileSync(`./public/res/test${number}.json`, 'utf8'));
         // console.log(obj);
         questionList = textDataList.map((elm, ind, arr) => {
           console.log(elm);
@@ -101,8 +118,8 @@ app.on('ready',()=>{
   displayHeight = electron.screen.getPrimaryDisplay().size.height
   console.log(displayWidth)
   console.log(displayHeight)
-
-  initTextList().then(createAnswerWindow).then(createFillBlankWindow)
+  createSelectWindow();
+  // initTextList().then(createAnswerWindow).then(createFillBlankWindow)
 })
 
 // Quit when all windows are closed.
@@ -143,6 +160,14 @@ ipcMain.on("startGame",(event, arg)=>{
 ipcMain.on("restartGame",(event,arg)=>{
   FillBlankWindow.close();
   cardList = [];
-  initTextList().then(createAnswerWindow).then(createFillBlankWindow)
+  createSelectWindow();
+  //initTextList().then(createAnswerWindow).then(createFillBlankWindow)
   //FillBlankWindow.webContents.openDevTools()
 })
+
+
+ipcMain.on("selectText", (event, arg)=>{
+  initTextList(arg.number).then(createAnswerWindow).then(createFillBlankWindow).then(()=>{
+    selectWindow.close();
+  });
+});
